@@ -1,0 +1,58 @@
+﻿@model List<Message>
+@{
+    ViewData["Title"] = "Inbox";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card card-primary card-outline">
+    <div class="card-header">
+        <h3 class="card-title">Gelen Mesajlar</h3>
+        <!-- /.card-tools -->
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <div class="table-responsive mailbox-messages">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Okundu/Okunmadı</th>
+                        <th>Mesajı Gönderen</th>
+                        <th>Başlık - Mesaj</th>
+                        <th>Tarih</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @if (item.MessageStatus == true)
+                                {
+                                    <div class="icheck-primary">
+                                        <input type="checkbox" value="" id="check1" checked="checked">
+                                        <label for="check1">Okundu</label>
+                                    </div>}
+                                @if (item.MessageStatus == false)
+                                {
+                                    <div class="icheck-primary">
+                                        <input type="checkbox" value="" id="check1">
+                                        <label for="check1">Okunmadı</label>
+                                    </div>
+                                }
+                            </td>
+                            <td class="mailbox-name"><a href="/AdminMessage/GetInboxMessageDetails/@item.MessageID">@item.SenderMail</a></td>
+                            <td class="mailbox-subject">
+                                <b>@item.Subject</b> - @item.MessageContent
+                            </td>
+                            <td class="mailbox-date">@(((DateTime)item.MessageDate).ToString("dd-MMM-yyyy"))</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <!-- /.table -->
+        </div>
+        <!-- /.mail-box-messages -->
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->

@@ -1,0 +1,30 @@
+﻿@model List<Payment>
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Borcu Olan Ev</h4>
+
+            <form method="get" class="forms-sample">
+                <table class="table table">
+                    <tr>
+                        <th>Aidat</th>
+                        <th>Faturalar</th>
+                        <th>Tarihi</th>
+                        <th>Borç Öde</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+        <tr>
+            <td>@item.House.Subscription</td>
+            <td>@item.BillSum</td>
+            <td>@(((DateTime)item.BillDate).ToString("MMM-yyyy"))</td>
+            <td><a href="/KrediKartiAPI/Index/@item.PaymentID" class="btn btn-outline-danger">Borç Öde</a></td>
+
+        </tr>}
+
+                </table>
+            </form>
+        </div>
+    </div>
+</div>

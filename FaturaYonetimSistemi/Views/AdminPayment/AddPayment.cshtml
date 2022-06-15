@@ -1,0 +1,34 @@
+﻿@model Payment
+@{
+    ViewData["Title"] = "AddPayment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12">
+    <!-- jquery validation -->
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Yeni Ödeme Ekle</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <div class="card-body">
+            @using (Html.BeginForm("AddPayment", "AdminPayment", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.Label("Ev Id'si")
+                    @Html.TextBoxFor(x => x.HouseID, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.House.HouseNumber)
+                    <br />
+                    @Html.Label("Borç Toplamı")
+                    @Html.TextBoxFor(x => x.BillSum, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.BillSum)
+                    <br />
+                    <button class="btn btn-info">Ödeme Ekle</button>
+                </div>
+            }
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>

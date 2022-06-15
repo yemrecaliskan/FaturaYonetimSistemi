@@ -1,0 +1,26 @@
+﻿@model Message
+@{
+    ViewData["Title"] = "GetInboxMessageDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="timeline">
+    <!-- timeline time label -->
+    <div class="time-label">
+        <span class="bg-red">@(((DateTime)Model.MessageDate).ToString("dd-MMM-yyyy"))</span>
+    </div>
+    <!-- /.timeline-label -->
+    <!-- timeline item -->
+    <div>
+        <i class="fas fa-envelope bg-blue"></i>
+        <div class="timeline-item">
+            <h3 class="timeline-header"><a href="#">@Html.DisplayFor(x => x.SenderMail)</a> gelen mesaj.</h3>
+            <div class="timeline-body">
+                <b>@Html.DisplayFor(x => x.Subject)</b>
+                <br />                
+                @Html.DisplayFor(x => x.MessageContent)
+            </div>
+        </div>
+    </div>
+    <!-- END timeline item -->
+</div>

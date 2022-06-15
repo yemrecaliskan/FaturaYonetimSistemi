@@ -1,0 +1,44 @@
+﻿@model List<Payment>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Ödemeler</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Faturaların toplamı</th>
+                    <th>Fatura Tarihi</th>
+                    <th>Ev Numarası</th>
+                    <th>Durum</th>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <th>@item.PaymentID</th>
+                    <td>@item.BillSum</td>
+                    <td>@(((DateTime)item.BillDate).ToString("yyyy-MMM"))</td>
+                    <td>@item.House.HouseNumber</td>
+                    <td>@Html.Raw(item.IsPaid == true ? "<span class='badge badge-success'>Ödendi</span>" : "<span class='badge badge-danger'>Ödenmedi</span>")</td>
+
+                    <td><a href="/AdminPayment/EditPayment/@item.PaymentID" class="btn btn-success">Güncelle</a></td>
+                    <td><a href="/AdminPayment/DeletePayment/@item.PaymentID" class="btn btn-danger">Sil</a></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<a href="/AdminPayment/AddPayment/" class="btn btn-info">Yeni Ödeme Oluştur</a>

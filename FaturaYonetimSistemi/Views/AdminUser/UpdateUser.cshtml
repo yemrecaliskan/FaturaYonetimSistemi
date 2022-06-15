@@ -1,0 +1,45 @@
+﻿@model User
+@{
+    ViewData["Title"] = "UpdateUser";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12">
+    <!-- jquery validation -->
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Yeni Kullanıcı Ekle</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <div class="card-body">
+            @using (Html.BeginForm("UpdateUser", "AdminUser", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.Label("User ID:")
+                    @Html.TextBoxFor(x => x.UserID, new { @class = "form-control", @readonly = "readonly" })
+                    <br />
+                    @Html.Label("Ad:")
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("Soyad:")
+                    @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("Email:")
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("Telefon:")
+                    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("Araba:")
+                    @Html.TextBoxFor(x => x.CarStatus, new { @class = "form-control" })
+                    <br />
+
+                    <button class="btn btn-primary">Güncelle</button>
+                </div>
+            }
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>

@@ -1,0 +1,22 @@
+﻿@model Payment
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <table class="table table">
+                <tr>
+                    <th>Tarih</th>
+                    <th>Faturalar</th>
+                    <th>Abonelik Ücreti</th>
+                    <th>Toplam</th>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayFor(x => x.BillDate)</td>
+                    <td>@Html.DisplayFor(x => x.BillSum)</td>
+                    <td>@Html.DisplayFor(x => x.House.Subscription)</td>
+                    <td>@ViewBag.sum TL</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@model List<House>
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Evleriniz</h4>
+
+            <form method="get" class="forms-sample">
+                <table class="table table">
+                    <tr>
+                        <th>Blok</th>
+                        <th>Tipi</th>
+                        <th>Kat Numarası</th>
+                        <th>Ev Numarası</th>
+                        <th>Aidatı</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Block</td>
+                            <td>@item.Type</td>
+                            <td>@item.Layer</td>
+                            <td>@item.HouseNumber</td>
+                            <td>@item.Subscription</td>
+
+                        </tr>
+                    }
+                </table>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Kullanıcı Girişi</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/LoginTemplate/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/LoginTemplate/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-form-title" style="background-image: url(/LoginTemplate/images/bg-01.jpg);">
+                    <span class="login100-form-title-1">
+                        Kullanıcı Girişi
+                    </span>
+                </div>
+
+                <form method="POST" class="login100-form validate-form">
+                    <div class="wrap-input100 validate-input m-b-26" data-validate="Email boş bırakılamaz.">
+                        <span class="label-input100">E-Mail</span>
+                        <input class="input100" type="text" name="Email" placeholder="Emailinizi giriniz.">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 m-b-18">
+                        <span class="label-input100">Şifre</span>
+                        <input class="input100" type="password" name="Password" placeholder="Şifrenizi giriniz.">
+                    </div>
+
+                    <div class="flex-sb-m w-full p-b-30">
+                        <div class="contact100-form-checkbox">
+                            <label class="label-checkbox100">
+                                Sisteme ilk girişiniz ise şifrenizi boş bırakın. Şifreniz otomatik oluşturulacaktır.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Giriş
+                        </button>
+                    </div>
+                </form>
+                <a href="/Login/AdminLogin/" class="btn btn-block btn-info">Admin Girişi</a>
+            </div>
+        </div>
+    </div>
+
+    <!--===============================================================================================-->
+    <script src="~/LoginTemplate/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginTemplate/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginTemplate/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/LoginTemplate/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginTemplate/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginTemplate/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/LoginTemplate/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginTemplate/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginTemplate/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="card card-primary card-outline">
+    <div class="card-body box-profile">
+        <h3 class="profile-username text-center">@Html.DisplayFor(x => x.Name) @Html.DisplayFor(x => x.Surname)</h3>
+
+        <p class="text-muted text-center">@Html.DisplayFor(x => x.Email)</p>
+
+        <ul class="list-group list-group-unbordered mb-3">
+            <li class="list-group-item">
+                <b>Şifreniz: </b> <a class="float-right">@Html.DisplayFor(x => x.Password)</a>
+            </li>
+            <li class="list-group-item">
+                <b>TC: </b> <a class="float-right">@Html.DisplayFor(x => x.TCNo)</a>
+            </li>
+            <li class="list-group-item">
+                <b>Telefon: </b> <a class="float-right">@Html.DisplayFor(x => x.PhoneNumber)</a>
+            </li>
+        </ul>
+
+        <a href="/User/EditUser/@Html.DisplayTextFor(x=>x.UserID)" class="btn btn-primary btn-block"><b>Bilgilerimi Güncelle</b></a>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+@await Component.InvokeAsync("GetUserHouse")
+@await Component.InvokeAsync("CreditCardHouseInfo", new { id = ViewBag.d })

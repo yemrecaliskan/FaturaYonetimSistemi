@@ -1,0 +1,51 @@
+﻿@model List<User>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Kullanıcılar</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>Tc Numarası</th>
+                    <th>Email</th>
+                    <th>Telefon No</th>
+                    <th>Araba Durumu</th>
+                    <th>Aktif mi</th>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>@item.UserID</th>
+                        <td>@item.Name</td>
+                        <td>@item.Surname</td>
+                        <td>@item.TCNo</td>
+                        <td>@item.Email</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>@Html.Raw(item.CarStatus == null ? "<span class='badge badge-success'>Bilinmiyor</span>" : item.CarStatus)</td>
+                        <td>@Html.Raw(item.IsActive == true ? "<span class='badge badge-success'><i class='fa fa-check'></i></span>" : "<span class='badge badge-danger'><i class='fa fa-ban'></i></span>")</td>
+                        <td><a href="/AdminUser/UpdateUser/@item.UserID/" class="btn btn-info">Güncelle</a></td>
+                        <td><a href="/AdminUser/DeleteUser/@item.UserID/" class="btn btn-danger">Sil</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<a href="/AdminUser/AddUser/" class="btn btn-info">Yeni Kullanıcı Oluştur</a>
+<br />

@@ -1,0 +1,45 @@
+﻿@model User
+@{
+    ViewData["Title"] = "EditUser";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        @using (Html.BeginForm("EditUser", "User", FormMethod.Post))
+        {
+        <div class="form-group">
+            @Html.HiddenFor(x => x.UserID)
+            @Html.Label("Ad:")
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Name)
+            <br />
+            @Html.Label("Soyad:")
+            @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Surname)
+            <br />
+            @Html.Label("Email:")
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Email)
+            <br />
+            @Html.Label("Şifreniz:")
+            @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Password)
+            <br />
+            @Html.Label("Şifreniz:")
+            <input type="password" name="confirmPassword" class="form-control" />
+            <br />
+            @Html.Label("Telefon:")
+            @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.PhoneNumber)
+            <br />
+            @Html.Label("Araba:")
+            @Html.TextBoxFor(x => x.CarStatus, new { @class = "form-control" })
+            <br />
+
+            <button type="submit" class="btn btn-primary">Güncelle</button>
+            <a href="UserMain/Index" class="btn btn-info">Geri Dön</a>
+        </div>
+        }
+    </div>
+</div>
